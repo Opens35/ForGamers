@@ -18,7 +18,7 @@ PCデバイス選びに悩んでいる人が参考にできるブログサイト
 
 ## 設計書
 - [ER図](https://drive.google.com/file/d/1AJNSBg-WWKvYTG_Qpy4AWcBjvXBWJXrZ/view?usp=sharing)
-- [テーブル定義書]
+- [テーブル定義書](https://docs.google.com/spreadsheets/d/1C5eEsotvWDVtuCZ1dxSs6p3SkTxfznVMjY1-2qXp2kU/edit?usp=sharing)
 - [アプリケーション詳細設計]
 
 ## チャレンジ要素一覧
