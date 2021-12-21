@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-3">
+      <%= form_for @category, :url => {:action => :create} do |f| %>
+            <%= f.label :name, "カテゴリー名" %>
+            </br>
+            <%= f.text_field :name, class:'form-control' %>
+            </br>
+            <%= f.submit "追加", class: "btn btn-primary btn-block" %>
+        <% end %>
+    </div>
+    <div class="col-xs-9">
+      <table class="table table-hover table-inverse table-bordered">
+        <thead>
+          <tr class="info">
+            <th>ジャンル</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @categories.each do |category| %>
+            <tr>
+              <td class="text-left"><%= category.name%></td>
+              <td class="genre-td"><%= link_to "編集する", edit_admin_category_path(category), class: "glyphicon glyphicon-pencil btn btn-success" %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
