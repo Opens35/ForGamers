@@ -71,3 +71,8 @@ gem 'jquery-rails'
 gem 'dotenv-rails'
 gem 'ransack'
 gem 'haml-rails'
+
+gem 'dotenv-rails'
+group :production do
+  gem 'mysql2'
+end
