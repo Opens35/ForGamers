@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root to 'admin/categories#index'
   # 管理者用
 # URL /admin/sign_in ...
   devise_for :admin, skip: [:registrations, :passwords] ,controllers: {

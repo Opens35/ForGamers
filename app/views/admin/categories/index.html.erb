@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-xs-3">
+    <div class="col-3">
       <%= form_for @category, :url => {:action => :create} do |f| %>
             <%= f.label :name, "カテゴリー名" %>
             </br>
@@ -9,19 +9,21 @@
             <%= f.submit "追加", class: "btn btn-primary btn-block" %>
         <% end %>
     </div>
-    <div class="col-xs-9">
-      <table class="table table-hover table-inverse table-bordered">
+    <div class="col-9">
+      <table class="table">
         <thead>
-          <tr class="info">
-            <th>ジャンル</th>
+          <tr>
+            <th>カテゴリー名</th>
+            <th></th>
             <th></th>
           </tr>
         </thead>
         <tbody>
           <% @categories.each do |category| %>
             <tr>
-              <td class="text-left"><%= category.name%></td>
-              <td class="genre-td"><%= link_to "編集する", edit_admin_category_path(category), class: "glyphicon glyphicon-pencil btn btn-success" %></td>
+              <td><%= category.name%></td>
+              <td><%= link_to "編集", edit_admin_category_path(category), class: "btn-sm btn-primary" %></td>
+              <td><%= link_to '削除', admin_category_path(category), method: :delete, data: { confirm: '本当に削除しますか？' }, class: 'btn-sm btn-danger'%></td>
             </tr>
           <% end %>
         </tbody>
