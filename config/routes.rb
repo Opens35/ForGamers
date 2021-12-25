@@ -2,7 +2,10 @@ Rails.application.routes.draw do
   devise_for :admin, controllers: {
   sessions: 'admin/sessions'
   }
-  root 'admin/categories#index'
+  root 'blogs#index'
+  resources:blogs, only: [:index, :show] do
+    resources :comments
+  end
 
   namespace :admin do
     resources :categories, except: [:new, :show]
