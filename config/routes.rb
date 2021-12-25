@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
-  root 'admin/categories#index'
-  # 管理者用
-# URL /admin/sign_in ...
-  devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
-    sessions: "admin/sessions"
+  devise_for :admin, controllers: {
+  sessions: 'admin/sessions'
   }
+  root 'admin/categories#index'
+
   namespace :admin do
     resources :categories, except: [:new, :show]
+    resources :blogs
   end
 end
