@@ -7,11 +7,31 @@
           <%= @blog.title %>
         </h1>
       </div>
+      <%= attachment_image_tag @blog, :device_image, :fill, 300, 300, format: 'jpeg' %>
+        <div class="text-right">
+          更新日<%= @blog.updated_at.strftime("%Y-%m-%d") %>
+        </div>
       <div class="card-text">
         <%= @blog.review%>
       </div>
+      <div class="relative-post-evaluation">
+        <span>評価：</span>
+        <span id="star-rate-<%= @blog.id %>"></span>
+        <script>
+          $('#star-rate-<%= @blog.id %>').raty({
+            size: 36,
+            starOff: "<%= asset_path('star-off.png') %>",
+            starOn: "<%= asset_path('star-on.png') %>",
+            starHalf: "<%= asset_path('star-half.png') %>",
+            half: true,
+            readOnly: true,
+            score: <%= @blog.evaluation %>,
+          });
+        </script>
+        <%= @blog.evaluation %>
+      </div>
     </div>
-   </div>
+  </div>
   <h3>コメント</h3>
   <% @blog.comments.each do |comment| %>
     <p>

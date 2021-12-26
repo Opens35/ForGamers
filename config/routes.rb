@@ -5,7 +5,10 @@ Rails.application.routes.draw do
   root 'blogs#index'
   get 'pv_ranking', to: 'blogs#pv_ranking'
   get '/blogs/genre/:id', to: "blogs#genre"
-  resources:blogs, only: [:index, :show] do
+
+  resources :categories, only: [:index, :show]
+
+  resources :blogs, only: [:index, :show] do
     resources :comments
   end
 

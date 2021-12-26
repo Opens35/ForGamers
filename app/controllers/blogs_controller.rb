@@ -3,6 +3,7 @@ class BlogsController < ApplicationController
 
   def index
     @blogs = Blog.all
+    @category
   end
 
   def show
@@ -14,9 +15,8 @@ class BlogsController < ApplicationController
     @pv_ranking = Blog.order(impressions_count: 'DESC')
   end
 
-
   private
   def blog_params
-    params.require(:blog).permit(:title,:review,:device_image,:category_id,:rating)
+    params.require(:blog).permit(:title,:review,:device_image,:category_id,:evaluation)
   end
 end

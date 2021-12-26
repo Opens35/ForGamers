@@ -16,3 +16,9 @@
 @import "bootstrap";
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Raleway&display=swap');
+
+body {
+  font-family: 'Raleway', 'Noto Sans JP', sans-serif;
+}

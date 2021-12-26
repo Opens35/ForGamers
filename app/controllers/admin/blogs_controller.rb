@@ -51,6 +51,6 @@ class Admin::BlogsController < ApplicationController
   private
 
   def blog_params
-    params.require(:blog).permit(:title,:review,:device_image,:category_id,:rating)
+    params.require(:blog).permit(:title,:review,:device_image,:category_id,:evaluation)
   end
 end

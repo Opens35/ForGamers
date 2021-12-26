@@ -71,6 +71,7 @@ gem 'jquery-rails'
 gem 'dotenv-rails'
 gem 'ransack'
 gem 'haml-rails'
+# gem 'bootstrap-sass', '3.3.6'
 
 gem 'dotenv-rails'
 group :production do

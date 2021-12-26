@@ -1,24 +1,36 @@
-<h1>Edit Article</h1>
-<%= form_with model: @blog, url: admin_blog_path, local:true do |f| %>
-  <div class="validates">
-    <% if @blog.errors.any? %>
-      <%= @blog.errors.count %> 件の入力ミスがあります。
-      <% @blog.errors.full_messages.each do |message| %><br>
-        ・<%= message %>
+<div class="container">
+  <h1>レビュー編集</h1>
+  <%= form_with model: @blog, url: admin_blog_path, local:true do |f| %>
+    <div class="validates">
+      <% if @blog.errors.any? %>
+        <%= @blog.errors.count %> 件の入力ミスがあります。
+        <% @blog.errors.full_messages.each do |message| %><br>
+          ・<%= message %>
+        <% end %>
       <% end %>
-    <% end %>
-  </div>
-  <div class="field">
-    <%= f.label :title %>
-    <%= f.text_field :title, class: 'form-control' %>
-  </div>
+    </div>
+    <div class="field">
+      <%= f.label :title %>
+      <%= f.text_field :title, class: 'form-control' %>
+    </div>
 
-  <div class="field">
-    <%= f.label :review %>
-    <%= f.text_area :review, class: 'form-control'  %>
-  </div>
+    <div class="field">
+      <%= f.label :review %>
+      <%= f.text_area :review, class: 'form-control'  %>
+    </div>
 
-  <div class="actions mt-3">
-    <%= f.submit "保存する", class: 'btn btn-block btn-success btn-sm' %>
-  </div>
-<% end %>
+    <div class="field">
+      <%= f.label :device_image %>
+      <%= f.attachment_field :device_image, class: 'form-control'  %>
+    </div>
+
+    <div class="field">
+      <%= f.label :category_id %>
+      <%= f.collection_select :category_id, Category.all, :id, :name, { prompt: '選択してください' }, class: 'form-control'  %>
+    </div>
+
+    <div class="actions mt-3">
+      <%= f.submit "保存する", class: 'btn btn-block btn-success btn-sm' %>
+    </div>
+  <% end %>
+</div>

@@ -1,28 +1,24 @@
-<p>
-  <strong>Title:</strong>
-  <%= @blog.title %>
-</p>
+<div class="container">
 
-<strong>画像</strong>
-<%= attachment_image_tag @blog, :device_image, :fill, 300, 300, format: 'jpeg' %>
+  <div class="card my-5">
+    <div class="card-body">
+      <div class="card-title">
+        <h1>
+          <%= @blog.title %>
+        </h1>
+      </div>
+        <%= attachment_image_tag @blog, :device_image, :fill, 300, 300, format: 'jpeg' %>
+        <div class="text-right">
+          更新日<%= @blog.updated_at.strftime("%Y-%m-%d") %>
+        </div>
+      </div>
+      <div class="card-text">
+        <%= @blog.review %>
+      </div>
+    </div>
+   </div>
 
-<p>
-  <strong>Text:</strong>
-  <%= @blog.review%>
-</p>
-
-<class="mb-3">評価：<%= @blog.evaluation %>点
-
-<script>
-  $('#star-rate-<%= @blog.id %>').raty({
-    size: 36,
-    starOff:  '<%= asset_path('star-off.png') %>',
-    starOn : '<%= asset_path('star-on.png') %>',
-    starHalf: '<%= asset_path('star-half.png') %>',
-    half: true,
-    readOnly: true,
-    score: <%= @blog.evaluation %>,
-  });
-</script>
   <%= link_to 'Edit', edit_admin_blog_path(@blog) %> |
   <%= link_to 'Back', admin_blogs_path %>
+
+</div>
