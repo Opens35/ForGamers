@@ -3,9 +3,26 @@
   <%= @blog.title %>
 </p>
 
+<strong>画像</strong>
+<%= attachment_image_tag @blog, :device_image, :fill, 300, 300, format: 'jpeg' %>
+
 <p>
   <strong>Text:</strong>
   <%= @blog.review%>
 </p>
+
+<class="mb-3">評価：<%= @blog.evaluation %>点
+
+<script>
+  $('#star-rate-<%= @blog.id %>').raty({
+    size: 36,
+    starOff:  '<%= asset_path('star-off.png') %>',
+    starOn : '<%= asset_path('star-on.png') %>',
+    starHalf: '<%= asset_path('star-half.png') %>',
+    half: true,
+    readOnly: true,
+    score: <%= @blog.evaluation %>,
+  });
+</script>
   <%= link_to 'Edit', edit_admin_blog_path(@blog) %> |
   <%= link_to 'Back', admin_blogs_path %>

@@ -1,5 +1,7 @@
 class Blog < ApplicationRecord
-  belongs_to :categories, dependent: :destroy
+  attachment :device_image
+  is_impressionable counter_cache: true
+  belongs_to :categories, optional: true
   has_many :comments, dependent: :delete_all
   validates :title,presence: true
 end

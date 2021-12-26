@@ -4,8 +4,8 @@ class CreateBlogs < ActiveRecord::Migration[5.2]
       t.integer :category_id
       t.string :title
       t.text :review
-      t.float :rating
-      t.string :device_image
+      t.float :evaluation
+      t.string :device_image_id
 
       t.timestamps
     end

@@ -13,42 +13,58 @@
   </head>
 
   <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Dropdown
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Something else here</a>
+    <header style="font-family: 'Noto Sans JP',serif;">
+      <nav class="navbar navbar-expand-lg bg-dark  " id="navbarHeader">
+      <div class="container">
+        <%= link_to image_tag("cancel-on.png", size: "100x100"), root_path, class: "mt-2" %>
+        <div class="navbar navbar-dark shadow-sm">
+          <div class="container d-flex justify-content-between">
+            <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
           </div>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#">Disabled</a>
-        </li>
-      </ul>
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-      </form>
-    </div>
-  </nav>
-
+        </div>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav ml-auto">
+            <% if admin_signed_in? %>
+              <li class="nav-item">
+                <%= link_to admin_blogs_path, class: 'nav-link text-light  ml-2' do %>
+                レビュー
+                <% end %>
+              </li>
+              <li class="nav-item">
+                <%= link_to admin_categories_path, class: 'nav-link text-light  ml-2' do %>
+                カテゴリ
+                <% end %>
+              </li>
+              <li class="nav-item">
+                <%= link_to destroy_admin_session_path, class: 'nav-link text-light  ml-2', method: :delete do %>
+                ログアウト
+                <% end %>
+              </li>
+            <% else%>
+              <li class="nav-item">
+                <%#= link_to categories_path, class: 'nav-link text-light  ml-2' do %>
+              　カテゴリー一覧
+                <% #end %>
+              </li>
+              <li class="nav-item">
+                <%= link_to pv_ranking_path, class: 'nav-link text-light  ml-2' do %>
+                PVランキング
+                <% end %>
+              </li>
+            <% end %>
+          </ul>
+          <form class="d-flex">
+            <input class="ml-2 form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-light ml-2" type="submit">
+              <i class="fas fa-search">Search</i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </nav>
+  </header>
     <%= yield %>
 
   <footer class="container-fluid mt-4 text-center small d-none d-sm-block bg-light">
