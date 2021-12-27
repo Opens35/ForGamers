@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :categories, except: [:new, :show]
+    resources :categories
     resources :blogs
   end
 end

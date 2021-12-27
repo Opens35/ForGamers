@@ -1,7 +1,7 @@
 <div class ="container">
   <div class="row">
       <div class ="col-xs-6 mx-auto">
-        <%= form_for @category, :url => {:action => :create} do |f| %>
+        <%= form_for @category, :url => {:action => :update} do |f| %>
         <%= f.label :name, 'カテゴリー名' %>
         </br>
         <%= f.text_field :name, class:'form-control' %>
