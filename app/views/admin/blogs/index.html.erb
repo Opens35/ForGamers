@@ -6,6 +6,7 @@
   <table class="table table-striped">
     <thead>
     <tr>
+      <th></th>
       <th>Title</th>
       <th>Body</th>
       <th colspan="3"></th>
@@ -15,8 +16,9 @@
     <tbody>
     <% @blogs.each do |blog| %>
       <tr>
+        <td><%= attachment_image_tag blog, :device_image, :fill,100,100,format: 'jpeg' %></td>
         <td><%= blog.title %></td>
-        <td><%= blog.review.truncate(60)  %></td>
+        <td><%= blog.review.truncate(30)  %></td>
         <td><%= link_to 'Show', admin_blog_path(blog) %></td>
         <td>
           <%= link_to edit_admin_blog_path(blog), method: :get do %>
