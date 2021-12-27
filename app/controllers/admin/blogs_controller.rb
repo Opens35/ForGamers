@@ -1,4 +1,5 @@
 class Admin::BlogsController < ApplicationController
+  before_action :authenticate_admin!
   # 記事の一覧表示
   def index
     @blogs = Blog.all

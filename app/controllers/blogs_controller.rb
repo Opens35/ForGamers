@@ -2,7 +2,7 @@ class BlogsController < ApplicationController
   impressionist :actions => [:show], :unique => [:impressionable_id, :ip_address]
 
   def index
-    @blogs = Blog.all
+    @blogs = Blog.order(created_at: :desc)
     @category
   end
 

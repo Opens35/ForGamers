@@ -25,7 +25,7 @@
           <%#= link_to 'Edit', edit_blog_path(blog) %>
         </td>
         <td>
-          <%= link_to blog, method: :delete, data: {confirm: 'ほんとうに消しますか？'} do %>
+          <%= link_to admin_blog_path(blog), method: :delete, data: {confirm: 'ほんとうに消しますか？'} do %>
             <i class="far fa-trash-alt"></i>
           <% end %>
           <%#= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %>
