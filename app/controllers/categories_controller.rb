@@ -4,6 +4,6 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    @category = Category.find(params[:id])
+    @category = Category.find(params[:id]).page(params[:page]).per(8)
   end
 end

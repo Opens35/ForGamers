@@ -2,7 +2,7 @@ class BlogsController < ApplicationController
   impressionist :actions => [:show], :unique => [:impressionable_id, :ip_address]
 
   def index
-    @blogs = Blog.order(created_at: :desc)
+    @blogs = Blog.order(created_at: :desc).page(params[:page]).per(8)
     @category
   end
 
@@ -12,7 +12,7 @@ class BlogsController < ApplicationController
   end
 
   def pv_ranking
-    @pv_ranking = Blog.order(impressions_count: 'DESC')
+    @pv_ranking = Blog.order(impressions_count: 'DESC').page(params[:page]).per(8)
   end
 
   private
