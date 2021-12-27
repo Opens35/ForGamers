@@ -6,7 +6,7 @@
         <div class="card h-100 text-center">
           <%= attachment_image_tag blog, :device_image, format: 'jpeg' %>
           <div class="card-body">
-            <h5 class="card-title"><%=blog.title.truncate(15)%></h5>
+            <h5 class="card-title"><%=blog.title.truncate(30)%></h5>
             <p class="card-text"><%= blog.review.truncate(20)%></p>
             <%= link_to "レビューを見る", blog_path(blog), class:"btn btn-primary"%>
           </div>
